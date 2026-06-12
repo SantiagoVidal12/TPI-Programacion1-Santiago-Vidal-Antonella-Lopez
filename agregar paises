@@ -1,0 +1,42 @@
+# ============================================================
+# agregar.py
+# Función: agregar_pais
+# Agrega un nuevo país a la lista.
+# Requiere: pedir_texto, pedir_entero_positivo,
+#           nombre_ya_existe, guardar_paises
+# ============================================================
+
+def agregar_pais(paises: list) -> None:
+    """
+    Pide al usuario los datos de un nuevo país y lo agrega a la lista.
+    - No permite campos vacíos.
+    - No permite nombres duplicados.
+    - Guarda automáticamente en el CSV.
+    """
+    print('='*60)
+    print('AGREGAR NUEVO PAIS')
+    print('='*60)
+
+    # Pide el nombre y verifica que no exista uno igual
+    nombre = pedir_texto('Nombre del pais     : ')
+    if nombre_ya_existe(paises, nombre):
+        print(f"Error: el pais '{nombre}' ya existe en el sistema.")
+        return
+
+    # Pide los datos numéricos y el continente
+    poblacion  = pedir_entero_positivo('Poblacion           : ')
+    superficie = pedir_entero_positivo('Superficie (km2)    : ')
+    continente = pedir_texto('Continente          : ')
+
+    # Arma el diccionario y lo agrega a la lista
+    paises.append({
+        "nombre":     nombre,
+        "poblacion":  poblacion,
+        "superficie": superficie,
+        "continente": continente,
+    })
+
+    # Guarda los cambios en el CSV
+    guardar_paises(paises)
+    print(f"[OK] Pais '{nombre}' agregado correctamente.")
+    print('='*60)
