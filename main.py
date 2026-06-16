@@ -1,6 +1,7 @@
 #Importa todas las funciones desde el archivo de Funciones.
-from Funciones import *
+from Funciones_Generales import *
 paises = []
+crear_archvio()
 opcion = False
 #Crea un bucle que va a iterar hasta que la opcion ingresada sea siete.
 while opcion != 7:
