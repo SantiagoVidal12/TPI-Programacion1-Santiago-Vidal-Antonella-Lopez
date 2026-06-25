@@ -22,8 +22,15 @@ def crear_archvio():
     except FileExistsError:
          pass
     
-def datos():
-     paises = []
-     with open('paises.csv', 'r', encoding='utf-8') as archivo:
+def datos(paises):
+     paises.clear()
+     with open('paises.csv', 'r', encoding='utf-8-sig') as archivo:
           lector_csv = csv.DictReader(archivo)
-          paises.extend(lector_csv)
+          lista_convertida = []
+          for i in lector_csv:
+               
+               i['poblacion'] = int(i['poblacion'])
+               i['superficie'] = int(i['superficie'])
+               lista_convertida.append(i)
+
+          paises.extend(lista_convertida)
