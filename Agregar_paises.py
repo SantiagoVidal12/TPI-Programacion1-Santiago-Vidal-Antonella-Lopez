@@ -2,7 +2,10 @@ import csv
 
 def agregar_pais():
     # Solicita al usuario los datos del nuevo pais.
-    nombre = input('Ingrese el nombre del pais: ').strip()
+    nombre = input('Ingrese el nombre del pais: ').strip().capitalize()
+    while not continente.isalpha():
+        print('ERRORR: Solo se permiten letras en el nombre del pais...')
+        nombre = input('Ingrese el nombre del pais: ').strip().capitalize()
     
     # Verifica que el pais no exista ya en el CSV.
     with open('paises.csv', 'r', encoding='utf-8-sig') as archivo:
@@ -18,16 +21,19 @@ def agregar_pais():
             poblacion = int(input('Ingrese la poblacion del pais: ').strip())
             break
         except ValueError:
-            print('ERROR: La poblacion debe ser un numero entero.')
+            print('ERROR: La poblacion debe ser un numero entero...')
 
     while True:
         try:
             superficie = int(input('Ingrese la superficie del pais (en km²): ').strip())
             break
         except ValueError:
-            print('ERROR: La superficie debe ser un numero entero.')
+            print('ERROR: La superficie debe ser un numero entero...')
 
-    continente = input('Ingrese el continente del pais: ').strip()
+    continente = input('Ingrese el continente del pais: ').strip().capitalize()
+    while not continente.isalpha():
+        print('ERRORR: Solo se permiten letras en el nombre del continente...')
+        continente = input('Ingrese el continente del pais: ').strip().capitalize()
 
     # Agrega el nuevo pais al CSV.
     with open('paises.csv', 'a', encoding='utf-8-sig', newline='') as archivo:

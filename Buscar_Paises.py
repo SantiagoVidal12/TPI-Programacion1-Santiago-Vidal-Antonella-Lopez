@@ -1,12 +1,7 @@
-import csv
+from Funciones_Generales import datos
 
-def buscar_pais():
-    # Carga los datos del CSV.
-    paises = []
-    with open('paises.csv', 'r', encoding='utf-8-sig') as archivo:
-        lector_csv = csv.DictReader(archivo)
-        paises.extend(lector_csv)
-
+def buscar_pais(paises):
+    datos(paises)
     # Solicita al usuario el nombre del pais a buscar.
     nombre = input('Ingrese el nombre del pais a buscar: ').strip()
 

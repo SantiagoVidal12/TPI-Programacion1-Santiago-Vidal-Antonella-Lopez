@@ -1,5 +1,6 @@
 #Importa todas las funciones desde el archivo de Funciones.
 from Funciones_Generales import *
+from Ordenamiento import ordenamiento
 paises = []
 crear_archvio()
 opcion = False
@@ -36,14 +37,15 @@ while opcion != 7:
             print('='*60)
             print('1. Ordenar por nombre.\n2. Ordenar por poblacion.\n3. Ordenar por superficie.')
             print('='*60)
+            datos()
             #Guarda en una variable lo que retorne la llamada a la funcion opci.
             opcion = opci('Ingrese la opcion que quiere ejecutar: ', 'Error solo se permiten ingresar numeros enteros para seleccionar las opciones...')
             #Toma el valor de opcion introducido por el usuario y lo compara con los distintos casos.
             match opcion:
                 case 1:
-                    pass
+                    ordenamiento(paises,'nombre')
                 case 2:
-                    pass
+                    ordenamiento(paises,'poblacion', descendente = True)
                 case 3:
                     print('1. Acendente.\n2. Decendente.')
                     #Guarda en una variable lo que retorne la llamada a la funcion opci.
@@ -51,9 +53,9 @@ while opcion != 7:
                     #Toma el valor de opcion introducido por el usuario y lo compara con los distintos casos.
                     match opcion:
                         case 1:
-                            pass
+                            ordenamiento(paises, 'superficie')
                         case 2:
-                            pass
+                            ordenamiento(paises, 'superficie', descendente = True)
                         case _:
                             print('El valor ingresado no es valido...')
                             print('='*60)
