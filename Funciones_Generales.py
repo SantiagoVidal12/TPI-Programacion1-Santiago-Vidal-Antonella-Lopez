@@ -28,9 +28,45 @@ def datos(paises):
           lector_csv = csv.DictReader(archivo)
           lista_convertida = []
           for i in lector_csv:
-               
-               i['poblacion'] = int(i['poblacion'])
-               i['superficie'] = int(i['superficie'])
-               lista_convertida.append(i)
+               fila_limpia = {clave.strip(): valor.strip() for clave, valor in i.items()}
+               fila_limpia['poblacion'] = int(fila_limpia['poblacion'])
+               fila_limpia['superficie'] = int(fila_limpia['superficie'])
+               lista_convertida.append(fila_limpia)
 
           paises.extend(lista_convertida)
+
+def verificar_solo_letras(mensaje, error):
+        texto = input(mensaje)
+        while not texto.isalpha():
+            print(f'ERRORR: {error}')
+            texto = input(mensaje).strip().capitalize()
+        return texto
+
+def quitar_acentos(texto):
+        reemplazos = [("á", "a"), ("é", "e"), ("í", "i"), ("ó", "o"), ("ú", "u")]
+        texto_limpio = str(texto).lower().strip()
+        for con_tilde, sin_tilde in reemplazos:
+            texto_limpio = texto_limpio.replace(con_tilde, sin_tilde)
+        return texto_limpio
+
+def generar_rango(mensaje):
+    #Crea un bucle que va a iterar hasta que se fuerze su salida.
+    while True:        
+        try:
+            #Intenta pedirle al ususario que ingrese un numero entero.
+            rango = int(input(mensaje))
+            #Verifica si el numero ingresado es positivo.
+            if rango < 0:
+                #En caso de no serlo fuerza un error con un mensaje que se le de como argumento.
+                raise ValueError('ERROR: No se permiten rangos negativos...')
+            #En caso de que no haya errores retorna el numero ingresado por el ususario.
+            return rango
+        #Se ejecuta solo si el usuario intenta ingerea cualquier cosa que no sea un numero entero.
+        except ValueError as e:
+            if 'invalid literal for int()' in str(e):
+                print('Error en el rango: Debe ingresar un numero entero valido (no se permiten letras)...')
+            else:
+                print(f'Error en el rango: {e}')
+        #Se ejecuta solo si se produce algun error no esperado.
+        except Exception as e:
+            print(f'Se produjo un error inesperado: {e}')

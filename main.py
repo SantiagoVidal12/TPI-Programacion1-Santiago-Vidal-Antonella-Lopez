@@ -1,6 +1,7 @@
 #Importa todas las funciones desde el archivo de Funciones.
 from Funciones_Generales import *
 from Ordenamiento import *
+from Filtrado import *
 paises = []
 crear_archvio()
 opcion = False
@@ -23,16 +24,27 @@ while opcion != 7:
             print('='*60)
             print('1. Filtrar por continente.\n2. Filtrar por rango de poblacion.\n3.Filtrar por rango de superficie.')
             print('='*60)
+            datos(paises)
             #Guarda en una variable lo que retorne la llamada a la funcion opci.
             opcion = opci('Ingrese la opcion que quiere ejecutar: ', 'Error solo se permiten ingresar numeros enteros para seleccionar las opciones...')
             #Toma el valor de opcion introducido por el usuario y lo compara con los distintos casos.
             match opcion:
                 case 1:
-                    pass
+                    continente = verificar_solo_letras('Ingrese el nombre del continente con el que quiere filtrar: ', 'Solo se permiten letras en el nombre del continente')
+                    continentes = filtrar_continente(paises, continente)
+                    mostrar_filtrados(continentes, 'el continente buscado')
                 case 2:
-                    pass
+                    print('ALERTA: El primer numero del rango es el menor el segundo es el mayor...')
+                    rango_1 = generar_rango('Ingrese el primer numero que tendra de rango de poblacion: ')
+                    rango_2 = generar_rango('Ingrese el segundo numero que tendra de rango de poblacion: ')
+                    poblacion = filtrar_rango(paises, rango_1, rango_2, 'poblacion')
+                    mostrar_filtrados(poblacion, 'el rango de poblacion buscada')
                 case 3:
-                    pass
+                    print('ALERTA: El primer numero del rango es el menor el segundo es el mayor...')
+                    rango_1 = generar_rango('Ingrese el primer numero que tendra de rango de superficie: ')
+                    rango_2 = generar_rango('Ingrese el segundo numero que tendra de rango de superficie: ')
+                    poblacion = filtrar_rango(paises, 'superficie')
+                    mostrar_filtrados(poblacion, 'el rango de superficie buscada')
         case 5:
             print('='*60)
             print('1. Ordenar por nombre.\n2. Ordenar por poblacion.\n3. Ordenar por superficie.')
