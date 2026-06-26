@@ -83,5 +83,3 @@ def actualizar_pais():
     print(f'  Superficie : {int(pais_encontrado["superficie"]):,} km²')
     print(f'  Continente : {pais_encontrado["continente"]}')
     print('-' * 60)
-
-actualizar_pais()

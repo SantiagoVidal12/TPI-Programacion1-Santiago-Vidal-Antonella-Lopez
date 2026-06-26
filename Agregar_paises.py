@@ -47,5 +47,3 @@ def agregar_pais():
     print(f'  Superficie : {superficie:,} km²')
     print(f'  Continente : {continente}')
     print('-' * 60)
-
-

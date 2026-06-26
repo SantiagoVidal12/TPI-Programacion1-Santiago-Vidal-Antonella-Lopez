@@ -1,8 +1,12 @@
 #Importa todas las funciones desde el archivo de Funciones.
 from Funciones_Generales import *
-from Ordenamiento import *
+from Agregar_paises import agregar_pais
+from Actualizar_paises import actualizar_pais
+from Buscar_Paises import buscar_pais
 from Filtrado import *
+from Ordenamiento import *
 from Estadisticas import *
+
 paises = []
 crear_archvio()
 opcion = False
@@ -16,11 +20,11 @@ while opcion != 7:
     #Toma el valor de opcion introducido por el usuario y lo compara con los distintos casos.
     match opcion:
         case 1:
-            pass
+            agregar_pais()
         case 2:
-            pass
+            actualizar_pais()
         case 3:
-            pass
+            buscar_pais(paises)
         case 4:
             print('='*60)
             print('1. Filtrar por continente.\n2. Filtrar por rango de poblacion.\n3.Filtrar por rango de superficie.')

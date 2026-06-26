@@ -19,5 +19,3 @@ def buscar_pais(paises):
             print('-' * 60)
     else:
         print(f'\nNo se encontro ningun pais con el nombre "{nombre}".')
-
-buscar_pais()
