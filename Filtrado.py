@@ -1,8 +1,8 @@
-from Funciones_Generales import quitar_acentos
+from Funciones_Generales import sacar_acentos
 def filtrar_continente(paises, continente):
     iguales = []
     for i in paises:
-        if quitar_acentos(i['continente'].strip().lower()) == quitar_acentos(str(continente).strip().lower()):
+        if sacar_acentos(i['continente'].strip().lower()) == sacar_acentos(str(continente).strip().lower()):
             iguales.append(i)
     return iguales
 

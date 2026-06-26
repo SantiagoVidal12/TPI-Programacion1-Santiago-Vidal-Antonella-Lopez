@@ -2,6 +2,7 @@
 from Funciones_Generales import *
 from Ordenamiento import *
 from Filtrado import *
+from Estadisticas import *
 paises = []
 crear_archvio()
 opcion = False
@@ -82,16 +83,21 @@ while opcion != 7:
             print('='*60)
             print('1. Pais con mayor y menor poblacion.\n2. Promedios(Poblacion y superficie).\n3. Cantidad de paises por continente.')
             print('='*60)
+            datos(paises)
             #Guarda en una variable lo que retorne la llamada a la funcion opci.
             opcion = opci('Ingrese la opcion que quiere ejecutar: ', 'Error solo se permiten ingresar numeros enteros para seleccionar las opciones...')
             #Toma el valor de opcion introducido por el usuario y lo compara con los distintos casos.
             match opcion:
                 case 1:
-                    pass
+                    lis_may, lis_men = may_men(paises)
+                    mostrar_may_men(lis_may, lis_men)
                 case 2:
-                    pass
+                    promedio_poblacion = promedio(paises, 'poblacion')
+                    promedio_superficie = promedio(paises, 'superficie')
+                    mostrar_promedio(promedio_poblacion, promedio_superficie)
                 case 3:
-                    pass
+                    conteo = contar_por_continente(paises)
+                    mostrar_conteo_de_continentes(conteo)
         case 7:
             #Al ingresar a la opcion ocho se le pide al usuario que confirme si quiere salir.
             confirmar = opci('Esta seguro que quiere salir? (1.Si / 2.No): ', 'Solo se permiten numeros enteros...')

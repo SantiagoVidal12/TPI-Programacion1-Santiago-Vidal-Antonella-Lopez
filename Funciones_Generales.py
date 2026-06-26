@@ -42,7 +42,7 @@ def verificar_solo_letras(mensaje, error):
             texto = input(mensaje).strip().capitalize()
         return texto
 
-def quitar_acentos(texto):
+def sacar_acentos(texto):
         reemplazos = [("á", "a"), ("é", "e"), ("í", "i"), ("ó", "o"), ("ú", "u")]
         texto_limpio = str(texto).lower().strip()
         for con_tilde, sin_tilde in reemplazos:
