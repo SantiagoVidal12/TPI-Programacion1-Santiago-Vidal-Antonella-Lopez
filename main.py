@@ -1,13 +1,20 @@
-#Importa todas las funciones desde el archivo de Funciones.
+#Importa todas las funciones desde el archivo de Funciones Generales y lo guarda de forma acortada en fun.
 import Funciones_Generales as fun
+#Importa las funcion de agregar pais dese el alchivo de Agrgar Paises.
 from Agregar_paises import agregar_pais
+#Importa las funcion de actualizar pais dese el alchivo de Actualizar Paises.
 from Actualizar_paises import actualizar_pais
+#Importa las funcion de buscar pais dese el alchivo de Buscar Paises.
 from Buscar_Paises import buscar_pais
+#Importa todas las funciones desde el archivo de Filtrado y lo guarda de forma acortada en flt.
 import Filtrado as flt
+#Importa todas las funciones desde el archivo de Ordenamiento y lo guarda de forma acortada en orde.
 import Ordenamiento as orde
+#Importa todas las funciones desde el archivo de Estadisticas y lo guarda de forma acortada en est.
 import Estadisticas as est
 
 paises = []
+#Llama a la funcion de crear archivo en caso de que el archivo csv no esxista previamente.
 fun.crear_archvio()
 opcion = False
 #Crea un bucle que va a iterar hasta que la opcion ingresada sea siete.
