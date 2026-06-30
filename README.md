@@ -82,3 +82,6 @@ El desarrollo del proyecto se realizó de manera conjunta y equitativa entre los
   * Diseño e implementación del formulario para la inserción de nuevos países (`Agregar_paises.py`).
   * Programación del módulo para la edición y modificación de datos existentes (`Actualizar_paises.py`).
   * Control de excepciones y validación de entradas de datos para asegurar la consistencia del archivo CSV.
+
+## Link del Video Explicativo
+* https://www.youtube.com/watch?v=TBkGksDxPw4
